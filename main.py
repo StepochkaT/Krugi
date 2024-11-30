@@ -7,7 +7,7 @@ from PyQt6.QtGui import QPainter, QColor
 from PyQt6.QtWidgets import QMainWindow, QApplication
 
 
-class Suprematism(QMainWindow):
+class Krugi(QMainWindow):
     def __init__(self):
         super().__init__()
         self.qp = QPainter()
@@ -35,7 +35,7 @@ class Suprematism(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Suprematism()
+    ex = Krugi()
     ex.show()
     sys.exit(app.exec())
 
