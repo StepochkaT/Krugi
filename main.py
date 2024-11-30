@@ -1,10 +1,9 @@
 import sys
 from random import randint
 
-from PyQt6 import uic
-from PyQt6.QtCore import QPointF, Qt
+from PyQt6.QtCore import QPointF
 from PyQt6.QtGui import QPainter, QColor
-from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton
 
 
 class Krugi(QMainWindow):
@@ -12,7 +11,11 @@ class Krugi(QMainWindow):
         super().__init__()
         self.qp = QPainter()
         self.flag = False
-        uic.loadUi('UI.ui', self)
+        self.setGeometry(100, 100, 900, 900)
+        self.pushButton = QPushButton(self)
+        self.pushButton.setText('Заспавнить кружочки')
+        self.pushButton.resize(150, 50)
+        self.pushButton.move(300, 20)
         self.pushButton.clicked.connect(self.drawf)
 
     def drawf(self):
@@ -30,7 +33,6 @@ class Krugi(QMainWindow):
         for _ in range(randint(1, 10)):
             R = randint(20, 100)
             self.qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
-            self.qp.setPen(Qt.PenStyle())
             self.qp.drawEllipse(QPointF(randint(100, 800), randint(150, 800)), R, R)
 
 
